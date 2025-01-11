@@ -1,0 +1,41 @@
+{
+  "name": "anonymous",
+  "version": "1.0.0",
+  "description": "Anonymous chat app",
+  "main": "server/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solomon-David/Anonymous.git"
+  },
+  "keywords": [
+    "anonymous",
+    "chat",
+    "chat",
+    "app",
+    "anonymous",
+    "primotion",
+    "studio"
+  ],
+  "author": "Primotion Studio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solomon-David/Anonymous/issues"
+  },
+  "homepage": "https://github.com/Solomon-David/Anonymous#readme",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.4",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
