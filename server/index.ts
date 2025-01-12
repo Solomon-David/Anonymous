@@ -15,7 +15,11 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/status", (req: Request, res: Response) => {
-  res.status(200).json({ message: `Server running on port ${port}.` });
+  const connection = mongoose.connection;
+  connection.on('connected', () => {
+    res.status(200).json({ message: `Server running fine on port ${port} and database is connected.` });
+  });
+  res.status(200).json({ message: `Server running fine on port ${port} but database is not connected.` });
 });
 
 app.listen(port, () => {
