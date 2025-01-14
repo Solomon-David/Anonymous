@@ -30,6 +30,7 @@
 	"homepage": "https://github.com/Solomon-David/Anonymous#readme",
 	"dependencies": {
 		"@types/express": "^5.0.0",
+		"@types/mongoose": "^5.11.96",
 		"@types/node": "^22.10.5",
 		"dotenv": "^16.4.7",
 		"express": "^4.21.2",
