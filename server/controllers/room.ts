@@ -11,7 +11,11 @@ export const createRoom = async (req: Request, res: Response, next: NextFunction
         }
         const existingRoom = await Room.findOne({ $or: [{ roomName }, { email }] });
         if (existingRoom) {
-            res.status(400).json({ message: 'Room name already exists' });
+            const _existingRoom = existingRoom.toObject();
+            res.status(400).json({
+                message: 'Room already exists',
+                reason: (_existingRoom.email === email ? 'Email' : 'Room name') + ' already exists'
+            });
             return;
         }
         const room = await Room.create({ roomId: v4(), email, roomName });
