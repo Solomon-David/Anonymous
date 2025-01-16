@@ -6,7 +6,7 @@ export const createRoom = async (req: Request, res: Response) => {
     if (!email || !roomName) {
         res.status(400).json({ message: 'Email and room name are required' });
     }
-    const existingRoom = await Room.findOne({ where: { name: roomName } });
+    const existingRoom = await Room.findOne({ $or: [{ roomName }, { email }] });
     if (existingRoom) {
         res.status(400).json({ message: 'Room name already exists' });
     }
