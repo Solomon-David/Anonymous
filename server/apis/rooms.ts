@@ -1,10 +1,7 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+import { createRoom } from '../controllers/room';
 const roomRouter = Router();
 
-roomRouter.post('/createRoom', (req: Request, res: Response) => {
-    const { email, roomName } = req.body;
-
-    res.status(201).json({ message: 'Room created successfully' });
-});
+roomRouter.post('/createRoom', createRoom);
 
 export default roomRouter;

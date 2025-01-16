@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
 const roomsSchema: Schema = new Schema({
     id: {
@@ -9,9 +9,10 @@ const roomsSchema: Schema = new Schema({
         type: String,
         required: true
     },
-    roomName: { 
+    roomName: {
         type: String,
-        required: true},
+        required: true
+    },
     timestamp: {
         type: Date,
         default: Date.now
