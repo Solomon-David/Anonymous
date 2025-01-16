@@ -21,8 +21,10 @@ app.get("/status", (req: Request, res: Response) => {
   const connection = mongoose.connection;
   connection.on('connected', () => {
     res.status(200).json({ message: `Server running fine on port ${port} and database is connected.` });
+    return;
   });
   res.status(200).json({ message: `Server running fine on port ${port} but database is not connected.` });
+  return;
 });
 // End Test Routes
 
