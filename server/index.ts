@@ -26,6 +26,9 @@ app.get("/status", (req: Request, res: Response) => {
 });
 // End Test Routes
 
+app.all("*", (req: Request, res: Response) => {
+  res.status(404).json({ message: "Route or Method not found on this server" });
+});
 
 
 app.listen(port, () => {
