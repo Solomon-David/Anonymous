@@ -9,6 +9,15 @@ const messageSchema : Schema = new Schema({
     replyId: {
         type: Number,
         min:0,
+        validate: {
+            validator: function(this: any, value:Number){
+                return this.id > this.replyId;
+            }
+        }
+    },
+    roomName: {
+        type: String,
+        required:true
     },
     message: {
         type: String,

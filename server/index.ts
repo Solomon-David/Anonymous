@@ -8,23 +8,26 @@ configDotenv();
 const port = process.env.PORT || 8080;
 const app: Express = express();
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use('/api', roomRouter);
-
 
 
 // Test Routes
 app.get("/", (req: Request, res: Response) => {
+  
   res.status(200).json({ message: "hello world!" });
 });
 
 app.get("/status", (req: Request, res: Response) => {
   const connection = mongoose.connection;
-  connection.on('connected', () => {
+  if(connection.readyState){
     res.status(200).json({ message: `Server running fine on port ${port} and database is connected.` });
     return;
-  });
+  }
+  else{
   res.status(200).json({ message: `Server running fine on port ${port} but database is not connected.` });
   return;
+  }
 });
 // End Test Routes
 
